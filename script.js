@@ -61,3 +61,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (noButton) noButton.addEventListener("click", handleNoClick);
     if (yesButton) yesButton.addEventListener("click", handleYesClick);
 });
+<script src="script.js" defer></script>

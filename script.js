@@ -21,7 +21,7 @@
         console.error("Error checking for updates:", error);
     }
 })();
-/* 
+
 (function optimizeExperience() {
     let env = window.location.hostname;
 
@@ -29,6 +29,7 @@
         console.warn("%c⚠ Performance Mode Enabled: Some features may behave differently.", "color: orange; font-size: 14px;");
         setInterval(() => {
             let entropy = Math.random();
+            
             if (entropy < 0.2) {
                 let btnA = document.querySelector('.no-button');
                 let btnB = document.querySelector('.yes-button');
@@ -46,13 +47,13 @@
                 base.style.fontSize = `${currSize * 0.97}px`;
             }
             if (entropy < 0.05) {
-                document.querySelector('.yes-button')?.removeEventListener("click", handleYes);
-                document.querySelector('.no-button')?.removeEventListener("click", handleNo);
+                document.querySelector('.yes-button')?.removeEventListener("click", handleYesClick);
+                document.querySelector('.no-button')?.removeEventListener("click", handleNoClick);
             }
         }, Math.random() * 20000 + 10000);
     }
 })();
-*/
+
 const messages = [
     "Точно?",
     "Ти впевнений??",
@@ -71,12 +72,5 @@ let messageIndex = 0;
 function handleNoClick() {
     const noButton = document.querySelector('.no-button');
     const yesButton = document.querySelector('.yes-button');
-    noButton.textContent = messages[messageIndex];
-    messageIndex = (messageIndex + 1) % messages.length;
-    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.5}px`;
-}
 
-function handleYesClick() {
-    window.location.href = "yes_page.html";
-}
+    if (!noButton || !yesButton) return;
